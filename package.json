@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server",
     "test": "NODE_ENV=test mocha --compilers js:babel-register"
   },
   "keywords": [],
@@ -17,6 +19,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "mocha": "^3.1.0",
+    "react-addons-test-utils": "^15.3.2",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },

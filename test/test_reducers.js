@@ -3,8 +3,8 @@ import { createStore } from 'redux'
 import { addMemo } from '../src/actions'
 import memoApp from '../src/reducers'
 
-describe('test', () => {
-  it('store', () => {
+describe('Reducers', () => {
+  it('addMemo', () => {
     let store = createStore(memoApp)
 
     store.dispatch(addMemo('textA'))
