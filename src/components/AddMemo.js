@@ -1,24 +1,27 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 
-const AddMemo = ({ handleMemoSubmit }) => {
-  return (
-    <div>
-      <form onSubmit={ () => {
-        console.log('hoge');
-        handleMemoSubmit()
-      }
-      }>
-        <input type="text" name="memo" value={this.state.memo} />
-        <button type="submit">
-          Add Todo
-        </button>
+class AddMemo extends Component {
+
+  propTypes: {
+    handleMemoSubmit: PropTypes.func.isRequired
+  }
+
+  render () {
+    let input;
+    return (
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        if (!input.value.trim()) {
+          return
+        }
+        this.props.handleMemoSubmit(input.value)
+        input.value = ''
+      }}>
+        <input ref={node => { input = node }} />
+        <button type="submit">Add Memo</button>
       </form>
-    </div>
-  )
-}
-
-AddMemo.propTypes = {
-  handleMemoSubmit: PropTypes.func.isRequired
+    )
+  }
 }
 
 export default AddMemo
